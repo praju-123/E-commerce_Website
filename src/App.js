@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./component/App.css";
-import Todos from "./component/Todo";
 
 function App(props) {
   const [count, setCount] = useState(0);
@@ -20,7 +19,7 @@ function App(props) {
   return (
     <>
       <h1 style={myStyle}> Let's learn styling {props.color}</h1>
-      <Todos todos={todos} />
+
       <hr />
       <div>
         Count: {count}
