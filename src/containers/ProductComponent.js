@@ -7,9 +7,7 @@ import { setProduct } from "../redux/actions/productActions";
 const ProductComponent = () => {
   // useSelector  can access the state from any component
   const products = useSelector((state) => state.allProducts.products);
-  console.log("STATE", products);
 
-  //   const { id, title } = products[1];
   const dispatch = useDispatch();
 
   const fetchProduct = async () => {
@@ -23,7 +21,7 @@ const ProductComponent = () => {
   useEffect(() => {
     fetchProduct();
   }, []);
-  //   console.log(products.allProducts.products);
+
   return products.map((item) => (
     <div key={item.id}>
       <Link to={`/product/${item.id}`}>
