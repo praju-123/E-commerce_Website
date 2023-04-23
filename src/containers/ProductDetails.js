@@ -4,38 +4,34 @@ import { useParams } from "react-router-dom";
 import {
   selectedProduct,
   removeSelectedProduct,
+  fetchProductDetails,
 } from "../redux/actions/productActions";
 import { useDispatch, useSelector } from "react-redux";
 
 export const ProductDetails = () => {
   const { productId } = useParams();
-  console.log("id is", productId);
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product);
   const { title, price, category, image, description } = product;
 
   useEffect(() => {
-    // if (productId && productId !== "") {
-    //   fetchProductDetails();
-    // }
-
     if (productId && productId !== "") {
       console.log("YES WE GOT");
-      fetchProductDetails();
+      dispatch(fetchProductDetails(productId));
     }
     return () => {
       dispatch(removeSelectedProduct());
     };
   }, [productId]);
 
-  const fetchProductDetails = async () => {
-    const response = await axios
-      .get(`https://fakestoreapi.com/products/${productId}`)
-      .catch((e) => console.log(e));
-    console.log("product details", product);
-    dispatch(selectedProduct(response.data));
-  };
-
+  // const fetchProductDetails = async () => {
+  //   const response = await axios
+  //     .get(`https://fakestoreapi.com/products/${productId}`)
+  //     .catch((e) => console.log(e));
+  //   console.log("product details", product);
+  //   dispatch(selectedProduct(response.data));
+  // };
+  console.log("PRODUCT", product);
   return (
     <div className="ui grid container">
       {Object.keys(product).length === 0 ? (
