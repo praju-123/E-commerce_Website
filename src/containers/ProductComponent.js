@@ -13,7 +13,7 @@ const ProductComponent = () => {
     dispatch(fetchProduct());
   }, []);
 
-  return products.map((item) => (
+  return products?.map((item) => (
     <div key={item.id}>
       <Link to={`/product/${item.id}`}>
         <div className="four column wide">

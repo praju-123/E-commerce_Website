@@ -16,7 +16,7 @@ export const fetchProductDetails = (productId) => async (dispatch) => {
   });
 };
 
-export const removeSelectedProduct = (products) => {
+export const removeSelectedProduct = () => {
   return {
     type: actionTypes.REMOVE_SELECTED_PRODUCT,
   };

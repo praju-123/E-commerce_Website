@@ -3,7 +3,7 @@ const initialState = {
   products: [3, 4, 5],
 };
 
-export const productReducer = (state = initialState, { type, payload }) => {
+export const productReducer = (state = { initialState }, { type, payload }) => {
   switch (type) {
     case actionTypes.FETCH_PRODUCTUS:
       return { ...state, products: payload };
