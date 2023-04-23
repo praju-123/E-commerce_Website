@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
 import { Link } from "react-router-dom";
-import { setProduct, fetchProduct } from "../redux/actions/productActions";
+import { fetchProduct } from "../redux/actions/productActions";
 
 const ProductComponent = () => {
   // useSelector  can access the state from any component
@@ -10,19 +9,9 @@ const ProductComponent = () => {
 
   const dispatch = useDispatch();
 
-  // const fetchProduct = async () => {
-  //   const response = await axios
-  //     .get("https://fakestoreapi.com/products")
-  //     .catch((e) => console.log(e));
-
-  //   dispatch(setProduct(response.data));
-  // };
-
   useEffect(() => {
     dispatch(fetchProduct());
   }, []);
-
-  console.log("PRODUCT LIST", products);
 
   return products.map((item) => (
     <div key={item.id}>
